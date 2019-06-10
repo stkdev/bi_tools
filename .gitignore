@@ -1,0 +1,5 @@
+!.keep
+
+.idea/
+volumes/postgres-data/
+volumes/jupyter-data/
