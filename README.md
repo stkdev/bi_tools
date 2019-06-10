@@ -20,9 +20,9 @@ docker-compose run --rm postgres psql -h postgres -U postgres -c "create databas
 ```
 
 - redash
-    - [localhost:5000](localhost:5000)
+    - [localhost:5000](http://localhost:5000)
 - jupyter Lab
-    - [localhost:8888](localhost:8888)
+    - [localhost:8888](http://localhost:8888)
 
 
 ## 入れたいツール

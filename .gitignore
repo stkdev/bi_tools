@@ -3,3 +3,5 @@
 .idea/
 volumes/postgres-data/
 volumes/jupyter-data/
+volumes/server-data/
+

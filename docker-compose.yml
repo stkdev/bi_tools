@@ -17,6 +17,8 @@ services:
       REDASH_COOKIE_SECRET: veryverysecret
       REDASH_WEB_WORKERS: 4
     restart: always
+    volumes:
+      - ./volumes/server-data:/volumes
   worker:
     image: redash/redash:5.0.2.b5486
     command: scheduler
@@ -28,6 +30,8 @@ services:
       QUEUES: "queries,scheduled_queries,celery"
       WORKERS_COUNT: 2
     restart: always
+    volumes:
+      - ./volumes/server-data:/volumes
   redis:
     image: redis:3.0-alpine
     restart: always
