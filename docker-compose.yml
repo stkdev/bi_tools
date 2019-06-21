@@ -1,12 +1,13 @@
 version: '2'
 services:
   server:
-    image: redash/redash:5.0.2.b5486
+    image: redash/redash:6.0.0.b8537
     command: server
     depends_on:
       - postgres
       - redis
       - jupyter
+      - db
     ports:
       - 5000:5000
     environment:
@@ -21,7 +22,7 @@ services:
     volumes:
       - ./volumes/server-data:/volumes
   worker:
-    image: redash/redash:5.0.2.b5486
+    image: redash/redash:6.0.0.b8537
     command: scheduler
     environment:
       PYTHONUNBUFFERED: 0
@@ -51,3 +52,19 @@ services:
     volumes:
       - ./volumes/jupyter-data:/home/jovyan/work
     command: start-notebook.sh --NotebookApp.token=''
+  db:
+    image: mysql:8.0.16
+    restart: always
+    volumes:
+      - ./volumes/mysql-data:/var/lib/mysql
+      - ./volumes/mysql-conf:/etc/mysql/conf.d
+      - ./volumes/mysql-init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
