@@ -8,7 +8,13 @@ USER $NB_UID
 # Install Python 3 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
-RUN jupyter labextension install @lckr/jupyterlab_variableinspector@0.2.1 && \
+RUN conda install --quiet --yes \
+    'qt' \
+    'pyqt' \
+    'pymysql=0.9.3' && \
+    conda remove --quiet --yes --force qt pyqt && \
+    conda clean --all -f -y && \
+    jupyter labextension install @lckr/jupyterlab_variableinspector@0.2.1 && \
     jupyter labextension install @jupyterlab/toc@0.6.0 && \
     jupyter labextension install @jupyterlab/git@0.6.0 && \
     pip install --upgrade jupyterlab-git && \

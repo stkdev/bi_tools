@@ -5,3 +5,9 @@ create table if not exists sample.sample(
   num INT,
   text VARCHAR(100)
 );
+
+insert into sample.sample(num, text)
+values
+  (100, "サンプルデータ"),
+  (200, "サンプルです"),
+  (150, "ABC");
