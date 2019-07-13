@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   server:
     image: redash/redash:6.0.0.b8537
@@ -44,7 +44,9 @@ services:
       - ./volumes/postgres-data:/var/lib/postgresql/data
     restart: always
   jupyter:
-    image: jupyter/datascience-notebook:abdb27a6dfbb
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
     environment:
       JUPYTER_ENABLE_LAB: 1
     ports:
