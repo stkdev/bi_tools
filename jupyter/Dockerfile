@@ -3,6 +3,12 @@ FROM $BASE_CONTAINER
 
 # LABEL maintainer="stkdev <stkdev@dammy.com>"
 
+USER root
+
+RUN apt update \
+    && apt install -yq graphviz \
+    && rm -rf /var/lib/apt/lists/*
+
 USER $NB_UID
 
 # Install Python 3 packages
@@ -25,5 +31,7 @@ RUN conda install --quiet --yes \
     rm -rf /home/$NB_USER/.node-gyp && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
+
+RUN pip install dtreeviz==0.5
 
 USER $NB_UID
