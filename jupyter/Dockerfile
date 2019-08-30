@@ -25,7 +25,8 @@ RUN python3 -m pip install \
     PyMySQL==0.9.3 \
     dtreeviz==0.6 \
     folium==0.10.0 \
-    japanize-matplotlib
+    japanize-matplotlib \
+    jismesh==2.0.0
 
 USER $NB_UID
 

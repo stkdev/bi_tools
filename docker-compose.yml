@@ -18,6 +18,7 @@ services:
       REDASH_COOKIE_SECRET: veryverysecret
       REDASH_WEB_WORKERS: 4
       REDASH_ADDITIONAL_QUERY_RUNNERS: "redash.query_runner.python"
+      REDASH_DATE_FORMAT: "YYYY-MM-DD"
     restart: always
     volumes:
       - ./volumes/server-data:/volumes
@@ -32,6 +33,7 @@ services:
       QUEUES: "queries,scheduled_queries,celery"
       WORKERS_COUNT: 2
       REDASH_ADDITIONAL_QUERY_RUNNERS: "redash.query_runner.python"
+      REDASH_DATE_FORMAT: "YYYY-MM-DD"
     restart: always
     volumes:
       - ./volumes/server-data:/volumes
