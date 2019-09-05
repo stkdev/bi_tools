@@ -7,7 +7,16 @@ USER root
 
 RUN apt update \
     && apt install -yq graphviz \
+    && apt-get install -y swig mecab mecab-ipadic-utf8 libmecab-dev file \
     && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /tmp
+
+RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
+    && ./mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -y -a \
+    && rm -rf /tmp/mecab-ipadic-neologd
+
+WORKDIR /home/jovyan
 
 USER $NB_UID
 
@@ -26,7 +35,9 @@ RUN python3 -m pip install \
     dtreeviz==0.6 \
     folium==0.10.0 \
     japanize-matplotlib \
-    jismesh==2.0.0
+    jismesh==2.0.0 \
+    mecab-python3==0.996.2 \
+    gensim==3.8.0
 
 USER $NB_UID
 
