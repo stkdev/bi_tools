@@ -37,7 +37,9 @@ RUN python3 -m pip install \
     japanize-matplotlib \
     jismesh==2.0.0 \
     mecab-python3==0.996.2 \
-    gensim==3.8.0
+    gensim==3.8.0 \
+    redash_dynamic_query==1.0.4 \
+    wordcloud==1.5.0
 
 USER $NB_UID
 
