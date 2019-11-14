@@ -26,6 +26,9 @@ USER $NB_UID
 RUN jupyter labextension install @lckr/jupyterlab_variableinspector@0.2.1 && \
     jupyter labextension install @jupyterlab/toc@0.6.0 && \
     jupyter labextension install @jupyterlab/git@0.6.0 && \
+    jupyter nbextension enable --py --sys-prefix widgetsnbextension && \
+    jupyter labextension install ipyvolume@0.5.2 && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager@0.38 && \
     pip install --upgrade jupyterlab-git && \
     jupyter serverextension enable --py jupyterlab_git && \
     npm cache clean --force
@@ -39,7 +42,8 @@ RUN python3 -m pip install \
     mecab-python3==0.996.2 \
     gensim==3.8.0 \
     redash_dynamic_query==1.0.4 \
-    wordcloud==1.5.0
+    wordcloud==1.5.0 \
+    tqdm==4.38.0
 
 USER $NB_UID
 
