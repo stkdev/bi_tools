@@ -43,7 +43,9 @@ RUN python3 -m pip install \
     gensim==3.8.0 \
     redash_dynamic_query==1.0.4 \
     wordcloud==1.5.0 \
-    tqdm==4.38.0
+    tqdm==4.38.0 \
+    geopandas==0.6.2 \
+    plotly==4.3.0
 
 USER $NB_UID
 
