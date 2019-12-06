@@ -36,7 +36,7 @@ RUN jupyter labextension install @lckr/jupyterlab_variableinspector@0.2.1 && \
 RUN python3 -m pip install \
     PyMySQL==0.9.3 \
     dtreeviz==0.6 \
-    folium==0.10.0 \
+    folium==0.10.1 \
     japanize-matplotlib \
     jismesh==2.0.0 \
     mecab-python3==0.996.2 \
