@@ -45,7 +45,8 @@ RUN python3 -m pip install \
     wordcloud==1.5.0 \
     tqdm==4.38.0 \
     geopandas==0.6.2 \
-    plotly==4.3.0
+    plotly==4.3.0 \
+    python-Levenshtein==0.12.0
 
 USER $NB_UID
 
