@@ -11,3 +11,5 @@ values
   (100, "サンプルデータ"),
   (200, "サンプルです"),
   (150, "ABC");
+
+grant all on sample.* to superset;
