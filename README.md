@@ -29,9 +29,9 @@ docker-compose run --rm superset /bin/bash -c 'source ./init.sh'
 ```
 
 - superset
-    - [localhost:7077](http://localhost:7077)
+    - [localhost:8088](http://localhost:8088)
 - jupyter Lab
-    - [localhost:7777](http://localhost:7777)
+    - [localhost:8888](http://localhost:8888)
 
 
 

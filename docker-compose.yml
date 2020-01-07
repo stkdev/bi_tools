@@ -21,7 +21,7 @@ services:
     env_file: superset/.env
     restart: always
     ports:
-      - 7077:8088
+      - 8088:8088
     depends_on:
       - db
     volumes:
@@ -35,7 +35,7 @@ services:
     environment:
       JUPYTER_ENABLE_LAB: 1
     ports:
-      - 7777:8888
+      - 8888:8888
     volumes:
       - ./volumes/jupyter-data:/home/jovyan/work
     command: start-notebook.sh --NotebookApp.token=''
