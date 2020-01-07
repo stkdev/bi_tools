@@ -21,17 +21,17 @@ cd bi_tolls
 # 設定ファイル作成と記述
 cp superset/.env.example superset/.env
 
-# 初期設定
-docker-compose run --rm superset /bin/bash -c 'source ./init.sh'
-
 # バックグランド実行
 docker-compose up -d
+
+# 初期設定
+docker-compose run --rm superset /bin/bash -c 'source ./init.sh'
 ```
 
 - superset
-    - [localhost:8088](http://localhost:8088)
+    - [localhost:7077](http://localhost:7077)
 - jupyter Lab
-    - [localhost:8888](http://localhost:8888)
+    - [localhost:7777](http://localhost:7777)
 
 
 
