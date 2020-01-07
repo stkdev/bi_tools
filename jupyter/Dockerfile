@@ -25,7 +25,6 @@ USER $NB_UID
 # use notebook-friendly backends in these images
 RUN jupyter labextension install @lckr/jupyterlab_variableinspector@0.2.1 && \
     jupyter labextension install @jupyterlab/toc@0.6.0 && \
-    jupyter labextension install @jupyterlab/git@0.6.0 && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension && \
     jupyter labextension install ipyvolume@0.5.2 && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager@0.38 && \
