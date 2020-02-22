@@ -16,6 +16,15 @@ RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
     && ./mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -y -a \
     && rm -rf /tmp/mecab-ipadic-neologd
 
+RUN git clone --recursive https://github.com/ibayer/fastFM.git \
+    && cd fastFM \
+    && pip install -r ./requirements.txt \
+    && make \
+    && PYTHON=python3 make \
+    && pip install . \
+    && cd .. \
+    && rm -rf /tmp/fastFM
+
 WORKDIR /home/jovyan
 
 USER $NB_UID
@@ -46,6 +55,6 @@ RUN python3 -m pip install \
     geopandas==0.6.2 \
     plotly==4.3.0 \
     python-Levenshtein==0.12.0
-
+s
 USER $NB_UID
 
