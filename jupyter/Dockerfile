@@ -55,6 +55,6 @@ RUN python3 -m pip install \
     geopandas==0.6.2 \
     plotly==4.3.0 \
     python-Levenshtein==0.12.0
-s
+
 USER $NB_UID
 
