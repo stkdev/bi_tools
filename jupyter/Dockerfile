@@ -1,4 +1,4 @@
-ARG BASE_CONTAINER=jupyter/datascience-notebook:abdb27a6dfbb
+ARG BASE_CONTAINER=jupyter/datascience-notebook:3b1f4f5e6cc1
 FROM $BASE_CONTAINER
 
 # LABEL maintainer="stkdev <stkdev@dammy.com>"
@@ -32,28 +32,30 @@ USER $NB_UID
 # Install Python 3 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
-RUN jupyter labextension install @lckr/jupyterlab_variableinspector@0.2.1 && \
-    jupyter labextension install @jupyterlab/toc@0.6.0 && \
-    jupyter nbextension enable --py --sys-prefix widgetsnbextension && \
-    jupyter labextension install ipyvolume@0.5.2 && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager@0.38 && \
-    pip install --upgrade jupyterlab-git && \
+RUN jupyter labextension install @lckr/jupyterlab_variableinspector && \
+    jupyter labextension install @jupyterlab/toc@4.0.0 && \
+    jupyter labextension install ipyvolume && \
+    jupyter labextension install @jupyterlab/git@0.20.0 && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager@2.0.0 jupyter-leaflet@0.12.6 && \
+    pip install --upgrade jupyterlab-git==0.20.0 && \
     jupyter serverextension enable --py jupyterlab_git && \
+    jupyter nbextension enable --py --sys-prefix widgetsnbextension && \
     npm cache clean --force
 
 RUN python3 -m pip install \
     PyMySQL==0.9.3 \
-    dtreeviz==0.6 \
-    folium==0.10.1 \
-    japanize-matplotlib \
-    jismesh==2.0.0 \
-    mecab-python3==0.996.2 \
-    gensim==3.8.0 \
+    dtreeviz==0.8.2 \
+    ipyleaflet==0.12.6 \
+    folium==0.11.0 \
+    japanize-matplotlib==1.1.2 \
+    jismesh==2.1.0 \
+    mecab-python3==0.996.5 \
+    gensim==3.8.3 \
     redash_dynamic_query==1.0.4 \
-    wordcloud==1.5.0 \
-    tqdm==4.38.0 \
-    geopandas==0.6.2 \
-    plotly==4.3.0 \
+    wordcloud==1.7.0 \
+    tqdm==4.45.0 \
+    geopandas==0.7.0 \
+    plotly==4.7.1 \
     python-Levenshtein==0.12.0
 
 USER $NB_UID
