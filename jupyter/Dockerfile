@@ -56,7 +56,8 @@ RUN python3 -m pip install \
     tqdm==4.45.0 \
     geopandas==0.7.0 \
     plotly==4.7.1 \
-    python-Levenshtein==0.12.0
+    python-Levenshtein==0.12.0 \
+    ngt==1.11.5
 
 USER $NB_UID
 
