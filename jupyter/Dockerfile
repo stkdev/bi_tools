@@ -16,15 +16,6 @@ RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
     && ./mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -y -a \
     && rm -rf /tmp/mecab-ipadic-neologd
 
-RUN git clone --recursive https://github.com/ibayer/fastFM.git \
-    && cd fastFM \
-    && pip install -r ./requirements.txt \
-    && make \
-    && PYTHON=python3 make \
-    && pip install . \
-    && cd .. \
-    && rm -rf /tmp/fastFM
-
 WORKDIR /home/jovyan
 
 USER $NB_UID
@@ -37,6 +28,7 @@ RUN jupyter labextension install @lckr/jupyterlab_variableinspector && \
     jupyter labextension install ipyvolume && \
     jupyter labextension install @jupyterlab/git@0.20.0 && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager@2.0.0 jupyter-leaflet@0.12.6 && \
+    jupyter labextension install @bokeh/jupyter_bokeh && \
     pip install --upgrade jupyterlab-git==0.20.0 && \
     jupyter serverextension enable --py jupyterlab_git && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension && \
