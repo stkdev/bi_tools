@@ -57,7 +57,9 @@ RUN python3 -m pip install \
     geopandas==0.7.0 \
     plotly==4.7.1 \
     python-Levenshtein==0.12.0 \
-    ngt==1.11.5
+    ngt==1.11.5 \
+    openpyxl==3.0.4 \
+    ginza==3.1.1
 
 USER $NB_UID
 
