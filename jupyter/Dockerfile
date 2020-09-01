@@ -51,7 +51,15 @@ RUN python3 -m pip install \
     python-Levenshtein==0.12.0 \
     ngt==1.11.5 \
     openpyxl==3.0.4 \
-    ginza==3.1.1
+    ginza==4.0.1 \
+    lightgbm==2.3.1 \
+    openpyxl==3.0.4 \
+    optuna==2.0.0 \
+    tensorflow==2.3.0
+
+RUN python3 -m pip install git+https://github.com/boudinfl/pke.git && \
+    python3 -m nltk.downloader stopwords
+
 
 USER $NB_UID
 

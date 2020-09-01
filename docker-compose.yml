@@ -38,6 +38,7 @@ services:
       - 8888:8888
     volumes:
       - ./volumes/jupyter-data:/home/jovyan/work
+      - ./volumes/jupyter-conf:/home/jovyan/.jupyter
     command: start-notebook.sh --NotebookApp.token=''
 
   db:
